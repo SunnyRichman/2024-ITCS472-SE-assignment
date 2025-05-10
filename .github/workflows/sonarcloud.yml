@@ -1,19 +1,26 @@
 name: SonarCloud workflow
+
 on:
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarqube:
-    name: SonarQube
+    name: SonarCloud Analysis
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+          fetch-depth: 0  # Required for accurate analysis history
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          organization: itcs472
+          projectKey: SunnyRichman_2024-ITCS472-SE-assignment
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
