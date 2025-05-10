@@ -13,7 +13,7 @@ public class Application {
 		System.out.println("|                                Welcome to Thailand Online Shopping Mall!                                |");
 		System.out.println("|                                                                                                         |");
 		System.out.println("=---------------------------------------------------------------------------------------------------------=\n");
-		// Product product = new Product();
+		Product product = new Product();
 		product.addAllProducts();	
 		product.displayProducts(10,1);
 		
